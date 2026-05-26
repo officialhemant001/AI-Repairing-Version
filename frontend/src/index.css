@@ -1,12 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 :root {
+  /* Core brand colors */
   --color-primary: #3b82f6;
-  --color-bg-dark: #0f172a;
+  --color-primary-hover: #2563eb;
+  
+  /* Light Theme Variables */
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+  --color-glass: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme='dark'] {
+  /* Dark Theme Variables */
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-hover: #334155;
+  --color-border: #334155;
+  --color-text: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-glass: rgba(30, 41, 59, 0.7);
 }
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background-color: var(--color-bg-dark);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: var(--color-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Base tailwind layer overrides for smooth dark/light transitions */
+@layer base {
+  .bg-slate-900 { background-color: var(--color-bg); }
+  .bg-slate-800 { background-color: var(--color-surface); }
+  .text-slate-100 { color: var(--color-text); }
+  .text-slate-300 { color: var(--color-text); opacity: 0.9; }
+  .text-slate-400 { color: var(--color-text-muted); }
+  .border-slate-700 { border-color: var(--color-border); }
+  
+  /* Prevent blue highlight on mobile tap */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
 }

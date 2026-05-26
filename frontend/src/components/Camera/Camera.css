@@ -5,7 +5,7 @@
   margin: 0 auto;
   border-radius: 1rem;
   overflow: hidden;
-  background-color: #0f172a; /* Tailwind bg-slate-900 */
+  background-color: var(--color-bg-dark, #0f172a);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
@@ -14,10 +14,14 @@
   height: 100%;
   min-height: 400px;
   object-fit: cover;
-  transform: scaleX(-1); /* Mirror effect for front camera, but we use environment by default so we might conditionally apply this in JS */
+  /* Mirror effect for front camera (user facing) */
 }
 
-/* We override the scaleX in the JSX if using back camera */
+.camera-video.user {
+  transform: scaleX(-1);
+}
+
+/* Environment camera (back) should NOT be mirrored */
 .camera-video.environment {
   transform: none;
 }
@@ -25,11 +29,12 @@
 .camera-overlay {
   position: absolute;
   inset: 0;
-  pointer-events: none;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 1.5rem;
+  /* Ensure the overlay itself doesn't block clicks to the video (if we needed to tap-to-focus later) 
+     but we allow pointer-events-auto on child buttons in the jsx */
 }
 
 .camera-guides {
@@ -39,6 +44,7 @@
   transform: translate(-50%, -50%);
   width: 70%;
   height: 50%;
-  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border: 1px dashed rgba(255, 255, 255, 0.3);
   border-radius: 1rem;
+  pointer-events: none; /* Never block clicks in the center */
 }

@@ -1,0 +1,491 @@
+
+> frontend@0.0.0 lint
+> eslint .
+
+
+D:\PROJECT ALL\Al Repair Vision\frontend\src\components\Result\Result.jsx
+  11:35  error  'user' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u      no-unused-vars
+  11:41  error  'addToast' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\PROJECT ALL\Al Repair Vision\frontend\src\components\UI\Navbar.jsx
+   23:5   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  21 |   // Close mobile menu on route change
+  22 |   React.useEffect(() => {
+> 23 |     setMobileMenuOpen(false);
+     |     ^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  24 |   }, [location.pathname]);
+  25 |
+  26 |   const NavLink = ({ to, icon: Icon, label, mobile = false }) => {                                                                                                                                                                                                                                                                                                                                                                                                react-hooks/set-state-in-effect
+   26:32  error  'Icon' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         no-unused-vars
+   61:14  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  59 |           {/* Desktop Nav Links */}
+  60 |           <div className="hidden md:flex items-center gap-2">
+> 61 |             <NavLink to="/" icon={Home} label="Home" />
+     |              ^^^^^^^ This component is created during render
+  62 |             <NavLink to="/scan" icon={Camera} label="Scan" />
+  63 |             <NavLink to="/chat" icon={MessageSquare} label="AI Chat" />
+  64 |
+
+  24 |   }, [location.pathname]);
+  25 |
+> 26 |   const NavLink = ({ to, icon: Icon, label, mobile = false }) => {
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |     const active = isActive(to);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     const baseClasses = mobile
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |   };
+     | ^^^^ The component is created during render here
+  43 |
+  44 |   return (
+  45 |     <nav className="sticky top-0 z-50 w-full glass-panel border-b border-slate-700/50 shadow-sm">                                                                                                                                                                                                                   react-hooks/static-components
+   62:14  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  60 |           <div className="hidden md:flex items-center gap-2">
+  61 |             <NavLink to="/" icon={Home} label="Home" />
+> 62 |             <NavLink to="/scan" icon={Camera} label="Scan" />
+     |              ^^^^^^^ This component is created during render
+  63 |             <NavLink to="/chat" icon={MessageSquare} label="AI Chat" />
+  64 |
+  65 |             <div className="w-px h-6 bg-slate-700/50 mx-2"></div> {/* Divider */}
+
+  24 |   }, [location.pathname]);
+  25 |
+> 26 |   const NavLink = ({ to, icon: Icon, label, mobile = false }) => {
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |     const active = isActive(to);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     const baseClasses = mobile
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |   };
+     | ^^^^ The component is created during render here
+  43 |
+  44 |   return (
+  45 |     <nav className="sticky top-0 z-50 w-full glass-panel border-b border-slate-700/50 shadow-sm">                                                                                                                                                                     react-hooks/static-components
+   63:14  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  61 |             <NavLink to="/" icon={Home} label="Home" />
+  62 |             <NavLink to="/scan" icon={Camera} label="Scan" />
+> 63 |             <NavLink to="/chat" icon={MessageSquare} label="AI Chat" />
+     |              ^^^^^^^ This component is created during render
+  64 |
+  65 |             <div className="w-px h-6 bg-slate-700/50 mx-2"></div> {/* Divider */}
+  66 |
+
+  24 |   }, [location.pathname]);
+  25 |
+> 26 |   const NavLink = ({ to, icon: Icon, label, mobile = false }) => {
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |     const active = isActive(to);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     const baseClasses = mobile
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |   };
+     | ^^^^ The component is created during render here
+  43 |
+  44 |   return (
+  45 |     <nav className="sticky top-0 z-50 w-full glass-panel border-b border-slate-700/50 shadow-sm">                                                                                                                                                                                                                                   react-hooks/static-components
+   69:18  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  67 |             {user ? (
+  68 |               <>
+> 69 |                 <NavLink to="/dashboard" icon={LayoutDashboard} label="Dashboard" />
+     |                  ^^^^^^^ This component is created during render
+  70 |                 <NavLink to="/history" icon={History} label="History" />
+  71 |                 <NavLink to="/profile" icon={User} label="Profile" />
+  72 |                 <button 
+
+  24 |   }, [location.pathname]);
+  25 |
+> 26 |   const NavLink = ({ to, icon: Icon, label, mobile = false }) => {
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |     const active = isActive(to);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     const baseClasses = mobile
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |   };
+     | ^^^^ The component is created during render here
+  43 |
+  44 |   return (
+  45 |     <nav className="sticky top-0 z-50 w-full glass-panel border-b border-slate-700/50 shadow-sm">                                                                                                                                                                                                           react-hooks/static-components
+   70:18  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  68 |               <>
+  69 |                 <NavLink to="/dashboard" icon={LayoutDashboard} label="Dashboard" />
+> 70 |                 <NavLink to="/history" icon={History} label="History" />
+     |                  ^^^^^^^ This component is created during render
+  71 |                 <NavLink to="/profile" icon={User} label="Profile" />
+  72 |                 <button 
+  73 |                   onClick={handleLogout}
+
+  24 |   }, [location.pathname]);
+  25 |
+> 26 |   const NavLink = ({ to, icon: Icon, label, mobile = false }) => {
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |     const active = isActive(to);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     const baseClasses = mobile
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |   };
+     | ^^^^ The component is created during render here
+  43 |
+  44 |   return (
+  45 |     <nav className="sticky top-0 z-50 w-full glass-panel border-b border-slate-700/50 shadow-sm">                                                                                                                                                                                        react-hooks/static-components
+   71:18  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  69 |                 <NavLink to="/dashboard" icon={LayoutDashboard} label="Dashboard" />
+  70 |                 <NavLink to="/history" icon={History} label="History" />
+> 71 |                 <NavLink to="/profile" icon={User} label="Profile" />
+     |                  ^^^^^^^ This component is created during render
+  72 |                 <button 
+  73 |                   onClick={handleLogout}
+  74 |                   className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium text-slate-400 hover:text-red-400 hover:bg-red-400/10 transition-colors"
+
+  24 |   }, [location.pathname]);
+  25 |
+> 26 |   const NavLink = ({ to, icon: Icon, label, mobile = false }) => {
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |     const active = isActive(to);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     const baseClasses = mobile
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |   };
+     | ^^^^ The component is created during render here
+  43 |
+  44 |   return (
+  45 |     <nav className="sticky top-0 z-50 w-full glass-panel border-b border-slate-700/50 shadow-sm">                                  react-hooks/static-components
+  116:14  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  114 |         <div className="md:hidden absolute top-[100%] left-0 w-full bg-slate-900 border-b border-slate-800 shadow-2xl animate-in slide-in-from-top-4 duration-200">
+  115 |           <div className="px-4 py-6 flex flex-col gap-2">
+> 116 |             <NavLink to="/" icon={Home} label="Home" mobile />
+      |              ^^^^^^^ This component is created during render
+  117 |             <NavLink to="/scan" icon={Camera} label="Scan & Diagnose" mobile />
+  118 |             <NavLink to="/chat" icon={MessageSquare} label="AI Chat Assistant" mobile />
+  119 |             
+
+  24 |   }, [location.pathname]);
+  25 |
+> 26 |   const NavLink = ({ to, icon: Icon, label, mobile = false }) => {
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |     const active = isActive(to);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     const baseClasses = mobile
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |   };
+     | ^^^^ The component is created during render here
+  43 |
+  44 |   return (
+  45 |     <nav className="sticky top-0 z-50 w-full glass-panel border-b border-slate-700/50 shadow-sm">                         react-hooks/static-components
+  117:14  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  115 |           <div className="px-4 py-6 flex flex-col gap-2">
+  116 |             <NavLink to="/" icon={Home} label="Home" mobile />
+> 117 |             <NavLink to="/scan" icon={Camera} label="Scan & Diagnose" mobile />
+      |              ^^^^^^^ This component is created during render
+  118 |             <NavLink to="/chat" icon={MessageSquare} label="AI Chat Assistant" mobile />
+  119 |             
+  120 |             <div className="h-px bg-slate-800 my-4 mx-2"></div>
+
+  24 |   }, [location.pathname]);
+  25 |
+> 26 |   const NavLink = ({ to, icon: Icon, label, mobile = false }) => {
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |     const active = isActive(to);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     const baseClasses = mobile
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |   };
+     | ^^^^ The component is created during render here
+  43 |
+  44 |   return (
+  45 |     <nav className="sticky top-0 z-50 w-full glass-panel border-b border-slate-700/50 shadow-sm">                                                                                                                             react-hooks/static-components
+  118:14  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  116 |             <NavLink to="/" icon={Home} label="Home" mobile />
+  117 |             <NavLink to="/scan" icon={Camera} label="Scan & Diagnose" mobile />
+> 118 |             <NavLink to="/chat" icon={MessageSquare} label="AI Chat Assistant" mobile />
+      |              ^^^^^^^ This component is created during render
+  119 |             
+  120 |             <div className="h-px bg-slate-800 my-4 mx-2"></div>
+  121 |             
+
+  24 |   }, [location.pathname]);
+  25 |
+> 26 |   const NavLink = ({ to, icon: Icon, label, mobile = false }) => {
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |     const active = isActive(to);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     const baseClasses = mobile
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |   };
+     | ^^^^ The component is created during render here
+  43 |
+  44 |   return (
+  45 |     <nav className="sticky top-0 z-50 w-full glass-panel border-b border-slate-700/50 shadow-sm">                                                                                                                                                                          react-hooks/static-components
+  124:18  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  122 |             {user ? (
+  123 |               <>
+> 124 |                 <NavLink to="/dashboard" icon={LayoutDashboard} label="Dashboard" mobile />
+      |                  ^^^^^^^ This component is created during render
+  125 |                 <NavLink to="/history" icon={History} label="Repair History" mobile />
+  126 |                 <NavLink to="/profile" icon={User} label="Profile Settings" mobile />
+  127 |                 <button 
+
+  24 |   }, [location.pathname]);
+  25 |
+> 26 |   const NavLink = ({ to, icon: Icon, label, mobile = false }) => {
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |     const active = isActive(to);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     const baseClasses = mobile
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |   };
+     | ^^^^ The component is created during render here
+  43 |
+  44 |   return (
+  45 |     <nav className="sticky top-0 z-50 w-full glass-panel border-b border-slate-700/50 shadow-sm">                                                                                                                                                               react-hooks/static-components
+  125:18  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  123 |               <>
+  124 |                 <NavLink to="/dashboard" icon={LayoutDashboard} label="Dashboard" mobile />
+> 125 |                 <NavLink to="/history" icon={History} label="Repair History" mobile />
+      |                  ^^^^^^^ This component is created during render
+  126 |                 <NavLink to="/profile" icon={User} label="Profile Settings" mobile />
+  127 |                 <button 
+  128 |                   onClick={handleLogout}
+
+  24 |   }, [location.pathname]);
+  25 |
+> 26 |   const NavLink = ({ to, icon: Icon, label, mobile = false }) => {
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |     const active = isActive(to);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     const baseClasses = mobile
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |   };
+     | ^^^^ The component is created during render here
+  43 |
+  44 |   return (
+  45 |     <nav className="sticky top-0 z-50 w-full glass-panel border-b border-slate-700/50 shadow-sm">                                                                                                                                            react-hooks/static-components
+  126:18  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  124 |                 <NavLink to="/dashboard" icon={LayoutDashboard} label="Dashboard" mobile />
+  125 |                 <NavLink to="/history" icon={History} label="Repair History" mobile />
+> 126 |                 <NavLink to="/profile" icon={User} label="Profile Settings" mobile />
+      |                  ^^^^^^^ This component is created during render
+  127 |                 <button 
+  128 |                   onClick={handleLogout}
+  129 |                   className="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-red-400 hover:bg-red-500/10 transition-colors w-full text-left"
+
+  24 |   }, [location.pathname]);
+  25 |
+> 26 |   const NavLink = ({ to, icon: Icon, label, mobile = false }) => {
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |     const active = isActive(to);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     const baseClasses = mobile
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |   };
+     | ^^^^ The component is created during render here
+  43 |
+  44 |   return (
+  45 |     <nav className="sticky top-0 z-50 w-full glass-panel border-b border-slate-700/50 shadow-sm">  react-hooks/static-components
+
+D:\PROJECT ALL\Al Repair Vision\frontend\src\context\AppContext.jsx
+  26:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  24 |     const currentUser = authService.getCurrentUser();
+  25 |     if (currentUser) {
+> 26 |       setUser(currentUser);
+     |       ^^^^^^^ Avoid calling setState() directly within an effect
+  27 |     }
+  28 |   }, []);
+  29 |  react-hooks/set-state-in-effect
+
+D:\PROJECT ALL\Al Repair Vision\frontend\src\hooks\useCamera.js
+  65:6   warning  React Hook useCallback has a missing dependency: 'stopCamera'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/exhaustive-deps
+  70:10  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  68 |   useEffect(() => {
+  69 |      if (stream) {
+> 70 |          startCamera();
+     |          ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  71 |      }
+  72 |   }, [facingMode]);
+  73 |  react-hooks/set-state-in-effect
+  72:6   warning  React Hook useEffect has missing dependencies: 'startCamera' and 'stream'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          react-hooks/exhaustive-deps
+
+D:\PROJECT ALL\Al Repair Vision\frontend\src\hooks\useVoiceInput.js
+  15:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  13 |     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  14 |     if (SpeechRecognition) {
+> 15 |       setIsSupported(true);
+     |       ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  16 |       recognitionRef.current = new SpeechRecognition();
+  17 |       
+  18 |       const recognition = recognitionRef.current;  react-hooks/set-state-in-effect
+  54:19  error    'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    no-unused-vars
+  73:6   warning  React Hook useEffect has a missing dependency: 'isListening'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   react-hooks/exhaustive-deps
+  82:55  error    'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    no-unused-vars
+  82:57  error    Empty block statement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            no-empty
+  83:9   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  81 |         // Only start if not already started (to avoid errors)
+  82 |         try { recognitionRef.current.start(); } catch(e){}
+> 83 |         setError(null);
+     |         ^^^^^^^^ Avoid calling setState() directly within an effect
+  84 |       } else {
+  85 |         recognitionRef.current.stop();
+  86 |       }                                                          react-hooks/set-state-in-effect
+
+D:\PROJECT ALL\Al Repair Vision\frontend\src\pages\Chat.jsx
+  32:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  30 |   useEffect(() => {
+  31 |     if (initialPrompt && messages.length === 0) {
+> 32 |       setInputValue(initialPrompt);
+     |       ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  33 |       // We don't auto-send, let the user review it
+  34 |     } else if (messages.length === 0) {
+  35 |       // Add welcome message  react-hooks/set-state-in-effect
+  49:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  47 |   useEffect(() => {
+  48 |     if (isListening && transcript) {
+> 49 |       setInputValue(transcript);
+     |       ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  50 |     }
+  51 |   }, [transcript, isListening]);
+  52 |                                                                                                    react-hooks/set-state-in-effect
+
+D:\PROJECT ALL\Al Repair Vision\frontend\src\pages\History.jsx
+   11:11  error  'user' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           no-unused-vars
+   40:7   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  38 |   useEffect(() => {
+  39 |     if (!searchTerm.trim()) {
+> 40 |       setFilteredHistory(history);
+     |       ^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  41 |       return;
+  42 |     }
+  43 |       react-hooks/set-state-in-effect
+  103:21  error  'confidence' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     no-unused-vars
+
+D:\PROJECT ALL\Al Repair Vision\frontend\src\pages\Profile.jsx
+  36:16  error  'err' is defined but never used  no-unused-vars
+
+✖ 32 problems (29 errors, 3 warnings)
+
