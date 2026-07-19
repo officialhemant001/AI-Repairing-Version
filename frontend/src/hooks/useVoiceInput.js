@@ -7,7 +7,7 @@ export const useVoiceInput = () => {
     return !!(window.SpeechRecognition || window.webkitSpeechRecognition);
   });
   const [error, setError] = useState(() => {
-    return !!(window.SpeechRecognition || window.webkitSpeechRecognition) 
+    return (window.SpeechRecognition || window.webkitSpeechRecognition) 
       ? null 
       : "Your browser doesn't support speech recognition. Please type your issue instead.";
   });
