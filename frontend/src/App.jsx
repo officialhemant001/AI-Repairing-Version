@@ -15,6 +15,8 @@ import Profile from './pages/Profile';
 import Chat from './pages/Chat';
 import History from './pages/History';
 import ScanDetail from './pages/ScanDetail';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 
 import './index.css';
 
@@ -31,6 +33,8 @@ function App() {
               <Route path="/scan" element={<Scan />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/chat" element={<Chat />} />
               
               {/* Protected Routes */}
